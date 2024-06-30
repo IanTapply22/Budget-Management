@@ -14,7 +14,7 @@
                             <v-number-input v-model="usdAmount" label="Amount (USD)" required :min=0></v-number-input>
                             <v-number-input v-model="usdShippingCost" label="Shipping Cost (USD)" required
                                 :min=0></v-number-input>
-                            <v-btn @click="createUsdCost()" color="primary">
+                            <v-btn @click="createUsdCost()" color="green">
                                 Create
                             </v-btn>
                             <v-btn @click="budget.clearUsdCosts()" color="red" class="ml-2">
@@ -37,7 +37,7 @@
                             <v-number-input v-model="cadAmount" label="Amount (CAD)" required :min=0></v-number-input>
                             <v-number-input v-model="cadShippingCost" label="Shipping Cost (CAD)" required
                                 :min=0></v-number-input>
-                            <v-btn @click="createCadCost()" color="primary">
+                            <v-btn @click="createCadCost()" color="green">
                                 Create
                             </v-btn>
                             <v-btn @click="budget.clearCadCosts()" color="red" class="ml-2">
@@ -51,7 +51,7 @@
         <h1 class="mt-4 text-center">Costs</h1>
         <h2 class="text-center font-weight-light">All costs that have been created. This includes both USD and CAD costs
             and contains information such as tax rates and more!</h2>
-        <v-row class="mt-2">
+        <v-row class="mt-10">
             <!-- Create cards for USD costs -->
             <v-card v-for="cost in budget.usdCosts" :key="cost.id" width="400" rounded class="ml-4">
                 <v-card-title>
@@ -62,7 +62,8 @@
                     <h3 class="font-weight-medium">Cost: {{ cost.amount }} USD</h3>
                     <h3 class="font-weight-medium">Shipping Cost: {{ cost.shippingCost }} USD</h3>
                     <h3 class="font-weight-medium">Taxed Dollars: {{ budget.calculateUsdItemTax(cost) }} USD</h3>
-                    <h3 class="font-weight-medium">Item Total After Tax: {{ budget.calculateUsdItemTotal(cost) }} USD
+                    <h3 class="font-weight-medium">Item Total After Tax: {{ budget.calculateUsdItemTotal(cost) }} USD</h3>
+                    <h3 class="font-weight-medium">CAD Conversion: {{ budget.convertToCad(budget.calculateUsdItemTotal(cost)) }} CAD
                     </h3>
                 </v-card-text>
             </v-card>
@@ -78,9 +79,19 @@
                     <h3 class="font-weight-medium">Taxed Dollars: {{ budget.calculateCadItemTax(cost) }} CAD</h3>
                     <h3 class="font-weight-medium">Item Total After Tax: {{ budget.calculateCadItemTotal(cost) }} CAD
                     </h3>
+                    <h3 class="font-weight-medium">USD Conversion: {{ budget.convertToUsd(budget.calculateUsdItemTotal(cost)) }} CAD
+                    </h3>
                 </v-card-text>
             </v-card>
         </v-row>
+        <h1 class="mt-10 ml-1">Settings</h1>
+        <v-number-input class="ml-1" v-model="budget.usdTaxRate" label="USD Tax Rate" required width="300"
+            :step="0.01" />
+        <v-number-input class="ml-1" v-model="budget.cadTaxRate" label="CAD Tax Rate" required width="300"
+            :step="0.01" />
+        <v-btn @click="budget.setUsdTaxRate(0.15), budget.setCadTaxRate(0.13)" color="red">
+            Reset Tax Rates
+        </v-btn>
     </v-col>
 </template>
 

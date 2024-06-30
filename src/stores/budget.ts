@@ -20,6 +20,9 @@ export const useBudgetStore = defineStore('budget', {
     setCadTaxRate(rate: number) {
       this.cadTaxRate = rate
     },
+    setUsdTaxRate(rate: number) {
+      this.usdTaxRate = rate
+    },
     setHourlyWage(wage: number) {
       this.hourlyWage = wage
     },
@@ -74,10 +77,17 @@ export const useBudgetStore = defineStore('budget', {
       return Math.round((this.cadTaxRate * item.amount) * 100) / 100
     },
     calculateCadItemTotal(item: CadCost): number {
-      return (item.amount + item.shippingCost + this.calculateCadItemTax(item))
+      return parseInt((item.amount + item.shippingCost + this.calculateCadItemTax(item)).toFixed(2))
     },
     calculateUsdItemTotal(item: UsdCost): number {
-      return (item.amount + item.shippingCost + this.calculateUsdItemTax(item))
+      return parseInt((item.amount + item.shippingCost + this.calculateUsdItemTax(item)).toFixed(2));
+    },
+
+    convertToCad(usd: number): number {
+      return Math.round(usd * 1.37 * 100) / 100
+    },
+    convertToUsd(cad: number): number {
+      return Math.round(cad / 1.37 * 100) / 100
     },
   },
 })

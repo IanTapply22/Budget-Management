@@ -84,14 +84,6 @@
                 </v-card-text>
             </v-card>
         </v-row>
-        <h1 class="mt-10 ml-1">Settings</h1>
-        <v-number-input class="ml-1" v-model="budget.usdTaxRate" label="USD Tax Rate" required width="300"
-            :step="0.01" />
-        <v-number-input class="ml-1" v-model="budget.cadTaxRate" label="CAD Tax Rate" required width="300"
-            :step="0.01" />
-        <v-btn @click="budget.setUsdTaxRate(0.15), budget.setCadTaxRate(0.13)" color="red">
-            Reset Tax Rates
-        </v-btn>
     </v-col>
 </template>
 

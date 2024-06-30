@@ -16,11 +16,15 @@ declare module 'vue' {
     CostCreator: typeof import('./components/CostCreator.vue')['default']
     CostManagement: typeof import('./components/CostManagement.vue')['default']
     CostsHeader: typeof import('./components/headers/CostsHeader.vue')['default']
+    EarningSplits: typeof import('./components/settings/EarningSplits.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    Pay: typeof import('./components/settings/Pay.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Settings: typeof import('./components/Settings.vue')['default']
+    TaxRates: typeof import('./components/settings/TaxRates.vue')['default']
     USDCards: typeof import('./components/cards/USDCards.vue')['default']
     USDCostCreation: typeof import('./components/fields/USDCostCreation.vue')['default']
+    WageRates: typeof import('./components/settings/WageRates.vue')['default']
   }
 }

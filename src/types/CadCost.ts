@@ -1,4 +1,4 @@
-interface CadCost {
+interface CADCost {
     id: number;
     name: String;
     description: String;

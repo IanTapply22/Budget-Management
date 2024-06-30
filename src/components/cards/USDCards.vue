@@ -1,6 +1,6 @@
 <template>
     <!-- Create cards for USD costs -->
-    <v-card v-for="cost in budget.usdCosts" :key="cost.id" width="400" rounded class="ml-4">
+    <v-card v-for="cost in budget.usdCosts" :key="cost.id" width="400" rounded class="ml-4 mt-4">
         <v-card-title>
             <h2>{{ cost.name }} (ID: {{ cost.id }})</h2>
         </v-card-title>

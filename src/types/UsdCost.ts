@@ -1,4 +1,4 @@
-interface UsdCost {
+interface USDCost {
     id: number
     name: String;
     description: String;

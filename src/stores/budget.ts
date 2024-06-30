@@ -1,4 +1,3 @@
-// Utilities
 import { defineStore } from 'pinia'
 
 export const useBudgetStore = defineStore('budget', {
@@ -15,36 +14,36 @@ export const useBudgetStore = defineStore('budget', {
     percentageToSpending: 50, // Percentage of our made money to spend as a percent
     percentageToSaving: 50, // Percentage of our made money to save as a percent
 
-    cadCosts: [] as CadCost[], // The lists of cad costs loaded into the app
-    usdCosts: [] as UsdCost[], // The list of costs the user has added to the app
+    cadCosts: [] as CADCost[], // The lists of cad costs loaded into the app
+    usdCosts: [] as USDCost[], // The list of costs the user has added to the app
   }),
   actions: {
     /**
      * Sets the whole array of CAD costs
      * @param costs The array of CAD costs to set
      */
-    setCadCosts(costs: CadCost[]) {
+    setCadCosts(costs: CADCost[]) {
       this.cadCosts = costs
     },
     /**
      * Sets the whole array of USD costs
      * @param usdCosts The array of USD costs to set
      */
-    setUsdCosts(usdCosts: UsdCost[]) {
+    setUsdCosts(usdCosts: USDCost[]) {
       this.usdCosts = usdCosts
     },
     /**
      * Adds a CAD cost to the app
      * @param cost The cost to add
      */
-    addCadCost(cost: CadCost) {
+    addCadCost(cost: CADCost) {
       this.cadCosts.push(cost)
     },
     /**
      * Adds a USD cost to the app
      * @param cost The cost to add
      */
-    addUsdCost(cost: UsdCost) {
+    addUsdCost(cost: USDCost) {
       this.usdCosts.push(cost)
     },
     /**
@@ -85,7 +84,7 @@ export const useBudgetStore = defineStore('budget', {
      * @param item The item to calculate the tax of
      * @returns The tax of the item
      */
-    calculateUsdItemTax(item: UsdCost): number {
+    calculateUsdItemTax(item: USDCost): number {
       return Math.round(((0.01 * this.usdTaxRate) * item.amount) * 100) / 100;
     },
     /**
@@ -93,7 +92,7 @@ export const useBudgetStore = defineStore('budget', {
      * @param item The item to calculate the tax of
      * @returns The tax of the item
      */
-    calculateCadItemTax(item: CadCost): number {
+    calculateCadItemTax(item: CADCost): number {
       return Math.round((0.01 * this.cadTaxRate * item.amount) * 100) / 100
     },
     /**
@@ -101,7 +100,7 @@ export const useBudgetStore = defineStore('budget', {
      * @param item The item to calculate the total cost of
      * @returns The total cost of the item
      */
-    calculateCadItemTotal(item: CadCost): number {
+    calculateCadItemTotal(item: CADCost): number {
       return parseInt((item.amount + item.shippingCost + this.calculateCadItemTax(item)).toFixed(2))
     },
     /**
@@ -109,7 +108,7 @@ export const useBudgetStore = defineStore('budget', {
      * @param item The item to calculate the total cost of
      * @returns The total cost of the item
      */
-    calculateUsdItemTotal(item: UsdCost): number {
+    calculateUsdItemTotal(item: USDCost): number {
       return parseInt((item.amount + item.shippingCost + this.calculateUsdItemTax(item)).toFixed(2));
     },
     /**

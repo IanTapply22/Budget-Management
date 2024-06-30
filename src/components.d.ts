@@ -8,10 +8,19 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./components/AppFooter.vue')['default']
+    Budget: typeof import('./components/Budget.vue')['default']
+    BudgetManagement: typeof import('./components/BudgetManagement.vue')['default']
+    BudgetsHeader: typeof import('./components/headers/BudgetsHeader.vue')['default']
+    CADCards: typeof import('./components/cards/CADCards.vue')['default']
+    CADCostCreation: typeof import('./components/fields/CADCostCreation.vue')['default']
     CostCreator: typeof import('./components/CostCreator.vue')['default']
+    CostManagement: typeof import('./components/CostManagement.vue')['default']
+    CostsHeader: typeof import('./components/headers/CostsHeader.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Settings: typeof import('./components/Settings.vue')['default']
+    USDCards: typeof import('./components/cards/USDCards.vue')['default']
+    USDCostCreation: typeof import('./components/fields/USDCostCreation.vue')['default']
   }
 }

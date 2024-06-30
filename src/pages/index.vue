@@ -1,5 +1,6 @@
 <template>
-  <CostCreator />
+  <CostManagement />
+  <BudgetManagement />
   <Settings />
 </template>
 

@@ -1,5 +1,7 @@
 interface UsdCost {
+    id: number
     name: String;
-    amount: Number;
-    shippingCost: Number;
+    description: String;
+    amount: number;
+    shippingCost: number;
 }

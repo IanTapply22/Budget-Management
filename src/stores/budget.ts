@@ -3,7 +3,8 @@ import { defineStore } from 'pinia'
 
 export const useBudgetStore = defineStore('budget', {
   state: () => ({
-    cadTaxRate: 0.13, // The tax rate in Canada
+    cadTaxRate: 0.13, // The tax rate in Canada\
+    usdTaxRate: 0.15, // The tax rate in the US
 
     hourlyWage: 0, // Calculated in CAD
     hoursPerWeek: 40, // How many hours per week
@@ -49,17 +50,11 @@ export const useBudgetStore = defineStore('budget', {
     addUsdCost(cost: UsdCost) {
       this.usdCosts.push(cost)
     },
-    removeCadCost(index: number) {
-      this.cadCosts.splice(index, 1)
+    removeCadCost(id: number) {
+      this.cadCosts = this.cadCosts.filter((cost) => cost.id !== id)
     },
-    removeUsdCost(index: number) {
-      this.usdCosts.splice(index, 1)
-    },
-    removeCadCostByName(name: string) {
-      this.cadCosts = this.cadCosts.filter((cost) => cost.name !== name)
-    },
-    removeUsdCostByName(name: string) {
-      this.usdCosts = this.usdCosts.filter((cost) => cost.name !== name)
+    removeUsdCost(id: number) {
+      this.usdCosts = this.usdCosts.filter((cost) => cost.id !== id)
     },
     clearUsdCosts() {
       this.usdCosts = []
@@ -70,6 +65,19 @@ export const useBudgetStore = defineStore('budget', {
     clearCosts() {
       this.clearUsdCosts()
       this.clearCadCosts()
+    },
+
+    calculateUsdItemTax(item: UsdCost): number {
+      return Math.round((this.usdTaxRate * item.amount) * 100) / 100;
+    },
+    calculateCadItemTax(item: CadCost): number {
+      return Math.round((this.cadTaxRate * item.amount) * 100) / 100
+    },
+    calculateCadItemTotal(item: CadCost): number {
+      return (item.amount + item.shippingCost + this.calculateCadItemTax(item))
+    },
+    calculateUsdItemTotal(item: UsdCost): number {
+      return (item.amount + item.shippingCost + this.calculateUsdItemTax(item))
     },
   },
 })

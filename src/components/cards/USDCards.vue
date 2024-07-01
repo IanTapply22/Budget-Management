@@ -13,17 +13,47 @@
             <h3 class="font-weight-medium">CAD Conversion: {{ budget.convertToCad(budget.calculateUsdItemTotal(cost)) }}
                 CAD
             </h3>
+
+            <!-- Create a confirmation dialog for deletion -->
+            <v-dialog max-width="500">
+                <template v-slot:activator="{ props: activatorProps }">
+                    <v-btn v-bind="activatorProps" class="mt-2" color="red" text="Delete"></v-btn>
+                </template>
+
+                <template v-slot:default="{ isActive }">
+                    <v-card title="Deletion Confirmation">
+                        <v-card-text>
+                            Are you sure you want to delete this cost? (ID: {{ cost.id }})
+                        </v-card-text>
+
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+
+                            <v-btn color="red" text @click="deleteUsdCost(cost.id), isActive.value = false">Delete</v-btn>
+                            <v-btn text="Close" @click="isActive.value = false"></v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </template>
+            </v-dialog>
         </v-card-text>
     </v-card>
 </template>
 
-<script>
+<script lang="ts">
 import { useBudgetStore } from '@/stores/budget';
 
 export default {
     data() {
         return {
             budget: useBudgetStore(),
+        }
+    },
+    methods: {
+        /**
+         * Delete a USD cost from the budget store.
+         */
+        deleteUsdCost(id: number) {
+            this.budget.removeUsdCost(id);
         }
     },
 }

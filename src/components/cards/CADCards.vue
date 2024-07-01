@@ -12,37 +12,52 @@
                 <h3 class="font-weight-medium">Taxed Dollars: {{ budget.calculateCadItemTax(cost) }} CAD</h3>
                 <h3 class="font-weight-medium">Item Total After Tax: {{ budget.calculateCadItemTotal(cost) }} CAD
                 </h3>
-                <h3 class="font-weight-medium">USD Conversion: {{ budget.convertToUsd(budget.calculateUsdItemTotal(cost)) }}
+                <h3 class="font-weight-medium">USD Conversion: {{
+        budget.convertToUsd(budget.calculateUsdItemTotal(cost)) }}
                     CAD
                 </h3>
-                <v-btn class="mt-2" color="red" @click="deleteConfirmation = true">
-                    Delete
-                </v-btn>
+
+                <!-- Create a confirmation dialog for deletion -->
+                <v-dialog max-width="500">
+                    <template v-slot:activator="{ props: activatorProps }">
+                        <v-btn v-bind="activatorProps" class="mt-2" color="red" text="Delete"></v-btn>
+                    </template>
+
+                    <template v-slot:default="{ isActive }">
+                        <v-card title="Deletion Confirmation">
+                            <v-card-text>
+                                Are you sure you want to delete this cost? (ID: {{ cost.id }})
+                            </v-card-text>
+
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+
+                                <v-btn color="red" text @click="deleteCadCost(cost.id), isActive.value = false">Delete</v-btn>
+                                <v-btn text="Close" @click="isActive.value = false"></v-btn>
+                            </v-card-actions>
+                        </v-card>
+                    </template>
+                </v-dialog>
             </v-card-text>
         </v-card>
-
-        <!-- Create a confirmation dialog for deletion -->
-        <DeletionConfirmation :enabled="deleteConfirmation" :deletion="deleteCadCost()" />
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import { useBudgetStore } from '@/stores/budget';
-import DeletionConfirmation from './confirmation/DeletionConfirmation.vue';
 
 export default {
     data() {
         return {
             budget: useBudgetStore(),
-            deleteConfirmation: false,
         }
     },
     methods: {
         /**
          * Delete a CAD cost from the budget store.
          */
-        deleteCadCost() {
-            this.budget.removeCadCost()
+        deleteCadCost(id: number) {
+            this.budget.removeCadCost(id);
         },
     }
 }

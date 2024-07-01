@@ -7,7 +7,7 @@ export const useBudgetStore = defineStore('budget', {
     cadTaxRate: 13, // The tax rate in Canada as a percent
     usdTaxRate: 15, // The tax rate in the US as a percent
 
-    hourlyWage: 0, // Calculated in CAD
+    hourlyWage: 22.50, // Calculated in CAD
     hoursPerWeek: 40, // How many hours per week
     paySchedule: 2, // The pay period in weeks (every __ weeks is pay)
     payTaxPercentage: 0, // Percentage of tax on the pay every 2 weeks

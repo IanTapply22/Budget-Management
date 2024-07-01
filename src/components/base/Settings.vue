@@ -1,6 +1,6 @@
 <template>
     <div class="ml-6">
-        <h1 class="mt-10">Settings</h1>
+        <SettingsHeader />
         <RemoveAllCosts />
         <TaxRates />
         <WageRates />

@@ -1,10 +1,12 @@
 <template>
-            <!-- Wage rates -->
-            <v-col cols="12" md="4">
+    <v-row class="justify-center">
+        <!-- Wage rates -->
+        <v-col cols="12" md="4">
             <v-row>
-                <v-number-input class="mr-4" v-model="budget.hourlyWage" label="CAD Hourly Wage" required width="100" :step="1" />
+                <v-number-input v-model="budget.hourlyWage" label="CAD Hourly Wage" required :step="1" />
             </v-row>
         </v-col>
+    </v-row>
 </template>
 
 <script>

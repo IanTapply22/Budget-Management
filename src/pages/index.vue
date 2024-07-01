@@ -2,4 +2,5 @@
   <CostManagement />
   <BudgetManagement />
   <Settings />
+  <Footer />
 </template>

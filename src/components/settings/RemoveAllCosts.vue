@@ -2,7 +2,9 @@
     <!-- Create a confirmation dialog for deletion -->
     <v-dialog max-width="500">
         <template v-slot:activator="{ props: activatorProps }">
-            <v-btn v-bind="activatorProps" class="mt-2 mb-4" color="red" text="DELETE ALL COSTS"></v-btn>
+            <v-row class="justify-center mt-2">
+                <v-btn v-bind="activatorProps" class="mt-2 mb-4" color="red" text="DELETE ALL COSTS" height="60"></v-btn>
+            </v-row>
         </template>
 
         <template v-slot:default="{ isActive }">

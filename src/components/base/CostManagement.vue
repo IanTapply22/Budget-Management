@@ -5,8 +5,11 @@
             <USDCostCreation />
             <CADCostCreation />
         </v-row>
+        <!-- Header and cost information on shipping -->
         <CostsHeader />
-        <v-row class="mt-10">
+        <CostInformation />
+        <!-- Displays the costs for both USD and CAD -->
+        <v-row class="mt-10 justify-center">
             <USDCards />
             <CADCards />
         </v-row>
@@ -14,8 +17,8 @@
 
     <!-- Message displayed if no costs have been created -->
     <h1 v-if="budget.usdCosts == false && budget.cadCosts == false" class="text-center">
-                No costs have been created! Please create one with the fields above.
-            </h1>
+        No costs have been created! Please create one with the fields above.
+    </h1>
 </template>
 
 <script>

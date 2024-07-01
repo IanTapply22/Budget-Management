@@ -7,15 +7,14 @@
             </v-card-title>
             <v-card-text>
                 <v-form>
-                    <v-text-field v-model="usdName" label="Name" required></v-text-field>
-                    <v-text-field v-model="usdDescription" label="Description" required></v-text-field>
-                    <v-number-input v-model="usdAmount" label="Amount (USD)" required :min=0></v-number-input>
-                    <v-number-input v-model="usdShippingCost" label="Shipping Cost (USD)" required
-                        :min=0></v-number-input>
+                    <v-text-field v-model="usdName" label="Name"></v-text-field>
+                    <v-text-field v-model="usdDescription" label="Description"></v-text-field>
+                    <v-number-input v-model="usdAmount" label="Amount (USD)" :min=0></v-number-input>
+                    <v-number-input v-model="usdShippingCost" label="Shipping Cost (USD)" :min=0></v-number-input>
                     <v-btn @click="createUsdCost()" color="green">
                         Create
                     </v-btn>
-                    <v-btn @click="budget.clearUsdCosts()" color="red" class="ml-2">
+                    <v-btn @click="budget.clearUSDCosts()" color="red" class="ml-2">
                         Delete All
                     </v-btn>
                 </v-form>
@@ -41,7 +40,7 @@ export default {
          * Create a USD cost and add it to the budget store.
          */
         createUsdCost() {
-            this.budget.addUsdCost({
+            this.budget.addUSDCost({
                 id: this.budget.currentID,
                 name: this.usdName,
                 description: this.usdDescription,

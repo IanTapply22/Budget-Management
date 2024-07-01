@@ -23,6 +23,21 @@ const items = [
         icon: `mdi-github`,
         href: 'https://github.com/IanTapply22/Budget-Management',
     },
+    {
+        title: 'LinkedIn',
+        icon: `mdi-linkedin`,
+        href: 'https://www.linkedin.com/in/ian-tapply/',
+    },
+    {
+        title: 'Email',
+        icon: `mdi-email`,
+        href: 'mailto:iantapply22@gmail.com'
+    },
+    {
+        title: 'Ian Tapply Gist',
+        icon: `mdi-github`,
+        href: 'https://gist.github.com/IanTapply22'
+    }
 ]
 </script>
 

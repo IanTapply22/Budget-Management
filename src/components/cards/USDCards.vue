@@ -8,9 +8,9 @@
             <h4 class="font-weight-light mb-2">{{ cost.description }}</h4>
             <h3 class="font-weight-medium">Cost: {{ cost.amount }} USD</h3>
             <h3 class="font-weight-medium">Shipping Cost: {{ cost.shippingCost }} USD</h3>
-            <h3 class="font-weight-medium">Taxed Dollars: {{ budget.calculateUsdItemTax(cost) }} USD</h3>
-            <h3 class="font-weight-medium">Item Total After Tax: {{ budget.calculateUsdItemTotal(cost) }} USD</h3>
-            <h3 class="font-weight-medium">CAD Conversion: {{ budget.convertToCad(budget.calculateUsdItemTotal(cost)) }}
+            <h3 class="font-weight-medium">Taxed Dollars: {{ budget.calculateUSDItemTax(cost) }} USD</h3>
+            <h3 class="font-weight-medium">Item Total After Tax: {{ budget.calculateUSDItemTotal(cost) }} USD</h3>
+            <h3 class="font-weight-medium">CAD Conversion: {{ budget.convertToCAD(budget.calculateUSDItemTotal(cost)) }}
                 CAD
             </h3>
 
@@ -29,7 +29,8 @@
                         <v-card-actions>
                             <v-spacer></v-spacer>
 
-                            <v-btn color="red" text @click="deleteUsdCost(cost.id), isActive.value = false">Delete</v-btn>
+                            <v-btn color="red" text
+                                @click="deleteUSDCost(cost.id), isActive.value = false">Delete</v-btn>
                             <v-btn text="Close" @click="isActive.value = false"></v-btn>
                         </v-card-actions>
                     </v-card>
@@ -45,15 +46,15 @@ import { useBudgetStore } from '@/stores/budget';
 export default {
     data() {
         return {
-            budget: useBudgetStore(),
+            budget: useBudgetStore()
         }
     },
     methods: {
         /**
          * Delete a USD cost from the budget store.
          */
-        deleteUsdCost(id: number) {
-            this.budget.removeUsdCost(id);
+        deleteUSDCost(id: number) {
+            this.budget.removeUSDCost(id);
         }
     },
 }

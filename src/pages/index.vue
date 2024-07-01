@@ -2,5 +2,6 @@
   <CostManagement />
   <BudgetManagement />
   <Settings />
-  <Footer />
+
+  <AppFooter />
 </template>

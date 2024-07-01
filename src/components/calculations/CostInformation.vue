@@ -29,7 +29,7 @@ import { useBudgetStore } from '@/stores/budget';
 export default {
     data() {
         return {
-            budget: useBudgetStore(),
+            budget: useBudgetStore()
         };
     },
     methods: {
@@ -61,7 +61,7 @@ export default {
          * Calculate the total shipping costs in CAD as a number without formatting
          */
         totalShippingCostsRaw() {
-            return this.budget.convertToCad(this.usdShippingCostRaw()) + this.cadShippingCostRaw();
+            return this.budget.convertToCAD(this.usdShippingCostRaw()) + this.cadShippingCostRaw();
         },
         /**
          * Calculate the total USD shipping cost in USD as a formatted string

@@ -7,19 +7,20 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AppFooter: typeof import('./components/AppFooter.vue')['default']
+    AppFooter: typeof import('./components/footer/AppFooter.vue')['default']
     Budget: typeof import('./components/Budget.vue')['default']
     BudgetManagement: typeof import('./components/base/BudgetManagement.vue')['default']
     BudgetsHeader: typeof import('./components/headers/BudgetsHeader.vue')['default']
     CADCards: typeof import('./components/cards/CADCards.vue')['default']
     CADCostCreation: typeof import('./components/fields/CADCostCreation.vue')['default']
+    ConversionRate: typeof import('./components/settings/ConversionRate.vue')['default']
     CostCreator: typeof import('./components/CostCreator.vue')['default']
     CostInformation: typeof import('./components/calculations/CostInformation.vue')['default']
     CostManagement: typeof import('./components/base/CostManagement.vue')['default']
     CostsHeader: typeof import('./components/headers/CostsHeader.vue')['default']
     DeletionConfirmation: typeof import('./components/cards/confirmation/DeletionConfirmation.vue')['default']
     EarningSplits: typeof import('./components/settings/EarningSplits.vue')['default']
-    Footer: typeof import('./components/base/Footer.vue')['default']
+    Footer: typeof import('./components/footer/Footer.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     Pay: typeof import('./components/settings/Pay.vue')['default']
     PayCalculation: typeof import('./components/calculations/PayCalculation.vue')['default']

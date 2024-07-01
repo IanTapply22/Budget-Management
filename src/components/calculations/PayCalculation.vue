@@ -81,7 +81,7 @@ import { useBudgetStore } from '@/stores/budget';
 export default {
     data() {
         return {
-            budget: useBudgetStore(),
+            budget: useBudgetStore()
         };
     },
     methods: {
@@ -182,7 +182,7 @@ export default {
          * Formats the amount of income after the USD costs (converted to CAD)
          */
         incomeAfterUSDCosts(): string {
-            return this.formatNumber(this.spendingsAmountRaw() - this.budget.convertToCad(this.usdCostsRaw()));
+            return this.formatNumber(this.spendingsAmountRaw() - this.budget.convertToCAD(this.usdCostsRaw()));
         },
         /**
          * Formats the amount of income after the CAD costs
@@ -194,7 +194,7 @@ export default {
          * Formats the total remaining spending after all costs in CAD
          */
         totalRemainingSpending(): string {
-            return this.formatNumber(this.spendingsAmountRaw() - this.budget.convertToCad(this.usdCostsRaw()) - this.cadCostsRaw());
+            return this.formatNumber(this.spendingsAmountRaw() - this.budget.convertToCAD(this.usdCostsRaw()) - this.cadCostsRaw());
         },
         /**
          * Format a number to a CAD currency string.

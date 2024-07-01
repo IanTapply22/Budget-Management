@@ -4,6 +4,7 @@
         <RemoveAllCosts />
         <TaxRates />
         <WageRates />
+        <ConversionRate />
         <Pay />
         <EarningSplits />
     </div>
@@ -15,7 +16,7 @@ import { useBudgetStore } from '@/stores/budget';
 export default {
     data() {
         return {
-            budget: useBudgetStore(),
+            budget: useBudgetStore()
         };
     },
 };

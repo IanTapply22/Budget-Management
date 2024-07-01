@@ -3,9 +3,10 @@
         <!-- Earning splitting -->
         <v-col cols="12" md="4">
             <v-row>
-                <v-number-input class="mr-4" v-model="percentageToSpending" label="Percentage To Spendings" required
-                    width="100" :step="1" />
-                <v-number-input v-model="percentageToSaving" label="Percentage To Savings" required :step="1" />
+                <v-number-input class="mr-4" v-model="percentageToSpending" label="Percentage To Spendings"
+                    width="100" :step="1" :max="100" :min="0" />
+                <v-number-input v-model="percentageToSaving" label="Percentage To Savings" :step="1" :max="100"
+                    :min="0" />
             </v-row>
         </v-col>
     </v-row>

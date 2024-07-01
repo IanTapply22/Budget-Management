@@ -9,11 +9,11 @@
                 <h4 class="font-weight-light mb-2">{{ cost.description }}</h4>
                 <h3 class="font-weight-medium">Cost: {{ cost.amount }} CAD</h3>
                 <h3 class="font-weight-medium">Shipping Cost: {{ cost.shippingCost }} CAD</h3>
-                <h3 class="font-weight-medium">Taxed Dollars: {{ budget.calculateCadItemTax(cost) }} CAD</h3>
-                <h3 class="font-weight-medium">Item Total After Tax: {{ budget.calculateCadItemTotal(cost) }} CAD
+                <h3 class="font-weight-medium">Taxed Dollars: {{ budget.calculateCADItemTax(cost) }} CAD</h3>
+                <h3 class="font-weight-medium">Item Total After Tax: {{ budget.calculateCADItemTotal(cost) }} CAD
                 </h3>
                 <h3 class="font-weight-medium">USD Conversion: {{
-        budget.convertToUsd(budget.calculateUsdItemTotal(cost)) }}
+                    budget.convertToUSD(budget.calculateUSDItemTotal(cost)) }}
                     CAD
                 </h3>
 
@@ -32,7 +32,8 @@
                             <v-card-actions>
                                 <v-spacer></v-spacer>
 
-                                <v-btn color="red" text @click="deleteCadCost(cost.id), isActive.value = false">Delete</v-btn>
+                                <v-btn color="red" text
+                                    @click="deleteCADCost(cost.id), isActive.value = false">Delete</v-btn>
                                 <v-btn text="Close" @click="isActive.value = false"></v-btn>
                             </v-card-actions>
                         </v-card>
@@ -49,15 +50,15 @@ import { useBudgetStore } from '@/stores/budget';
 export default {
     data() {
         return {
-            budget: useBudgetStore(),
+            budget: useBudgetStore()
         }
     },
     methods: {
         /**
          * Delete a CAD cost from the budget store.
          */
-        deleteCadCost(id: number) {
-            this.budget.removeCadCost(id);
+        deleteCADCost(id: number) {
+            this.budget.removeCADCost(id);
         },
     }
 }

@@ -3,7 +3,8 @@
     <v-dialog max-width="500">
         <template v-slot:activator="{ props: activatorProps }">
             <v-row class="justify-center mt-2">
-                <v-btn v-bind="activatorProps" class="mt-2 mb-4" color="red" text="DELETE ALL COSTS" height="60"></v-btn>
+                <v-btn v-bind="activatorProps" class="mt-2 mb-4" color="red" text="DELETE ALL COSTS"
+                    height="60"></v-btn>
             </v-row>
         </template>
 
@@ -16,7 +17,7 @@
                 <v-card-actions>
                     <v-spacer></v-spacer>
 
-                    <v-btn color="red" text @click="removeAllCosts(), isActive.value = false">Delete</v-btn>
+                    <v-btn color="red" text @click="budget.clearCosts(), isActive.value = false">Delete</v-btn>
                     <v-btn text="Close" @click="isActive.value = false"></v-btn>
                 </v-card-actions>
             </v-card>
@@ -32,14 +33,6 @@ export default {
         return {
             budget: useBudgetStore()
         };
-    },
-    methods: {
-        /**
-         * Remove all costs from the budget.
-         */
-        removeAllCosts() {
-            this.budget.clearCosts();
-        },
-    },
+    }
 };
 </script>

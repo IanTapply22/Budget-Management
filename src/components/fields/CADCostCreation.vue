@@ -7,15 +7,14 @@
             </v-card-title>
             <v-card-text>
                 <v-form>
-                    <v-text-field v-model="cadName" label="Name" required></v-text-field>
-                    <v-text-field v-model="cadDescription" label="Description" required></v-text-field>
-                    <v-number-input v-model="cadAmount" label="Amount (CAD)" required :min=0></v-number-input>
-                    <v-number-input v-model="cadShippingCost" label="Shipping Cost (CAD)" required
-                        :min=0></v-number-input>
+                    <v-text-field v-model="cadName" label="Name"></v-text-field>
+                    <v-text-field v-model="cadDescription" label="Description"></v-text-field>
+                    <v-number-input v-model="cadAmount" label="Amount (CAD)" :min=0></v-number-input>
+                    <v-number-input v-model="cadShippingCost" label="Shipping Cost (CAD)" :min=0></v-number-input>
                     <v-btn @click="createCadCost()" color="green">
                         Create
                     </v-btn>
-                    <v-btn @click="budget.clearCadCosts()" color="red" class="ml-2">
+                    <v-btn @click="budget.clearCADCosts()" color="red" class="ml-2">
                         Delete All
                     </v-btn>
                 </v-form>
@@ -42,7 +41,7 @@ export default {
          * Create a CAD cost and add it to the budget store.
          */
         createCadCost() {
-            this.budget.addCadCost({
+            this.budget.addCADCost({
                 id: this.budget.currentID,
                 name: this.cadName,
                 description: this.cadDescription,

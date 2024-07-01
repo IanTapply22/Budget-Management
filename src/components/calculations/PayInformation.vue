@@ -3,7 +3,7 @@
     <v-row justify="space-around">
       <v-col cols="12" md="6" lg="3">
         <v-card class="pa-3" outlined>
-          <h2 class="text-center font-weight-light">Hourly Wage (CAD): <strong>{{ budget.hourlyWage }}</strong></h2>
+          <h2 class="text-center font-weight-light">Hourly Wage: <strong>${{ budget.hourlyWage }} CAD</strong></h2>
         </v-card>
       </v-col>
       <v-col cols="12" md="6" lg="3">

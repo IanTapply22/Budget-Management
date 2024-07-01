@@ -2,9 +2,9 @@
     <!-- Earning splitting -->
     <v-col cols="12" md="4">
         <v-row>
-            <v-number-input class="mr-4" v-model="budget.percentageToSpending" label="Percentage To Spendings" required
+            <v-number-input class="mr-4" v-model="percentageToSpending" label="Percentage To Spendings" required
                 width="100" :step="1" />
-            <v-number-input v-model="budget.percentageToSaving" label="Percentage To Savings" required width="100"
+            <v-number-input v-model="percentageToSaving" label="Percentage To Savings" required width="100"
                 :step="1" />
         </v-row>
     </v-col>
@@ -17,7 +17,19 @@ export default {
     data() {
         return {
             budget: useBudgetStore(),
+            percentageToSpending: 50,
+            percentageToSaving: 50,
         };
     },
+    watch: {
+        percentageToSpending: function (newVal) {
+            this.percentageToSaving = 100 - newVal;
+            this.budget.percentageToSpending = newVal;
+        },
+        percentageToSaving: function (newVal) {
+            this.percentageToSpending = 100 - newVal;
+            this.budget.percentageToSaving = newVal;
+        }
+    }
 };
 </script>

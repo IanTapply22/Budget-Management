@@ -4,8 +4,8 @@
         <v-row>
             <v-number-input class="mr-4" v-model="budget.hoursPerWeek" label="Hours Per Week" required width="100"
                 :step="1" />
-            <v-number-input v-model="budget.paySchedule" label="Weeks Between Pays" required width="100" :step="1" />
-            <v-number-input v-model="budget.payTaxPercentage" label="Pay tax %" required width="100" :step="1"
+            <v-number-input v-model="budget.paySchedule" label="Weeks Between Pays" required width="100" :step="1" :min="1" />
+            <v-number-input v-model="budget.payTaxPercentage" label="Pay tax %" required width="100" :step="1" :min="0"
                 class="ml-4" />
         </v-row>
     </v-col>

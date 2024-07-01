@@ -21,6 +21,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     Pay: typeof import('./components/settings/Pay.vue')['default']
     PayCalculation: typeof import('./components/calculations/PayCalculation.vue')['default']
+    PayInformation: typeof import('./components/calculations/PayInformation.vue')['default']
     RemoveAllCosts: typeof import('./components/settings/RemoveAllCosts.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
